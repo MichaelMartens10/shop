@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{{asset('css/app.css')}}">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Test</h1>
+@extends('layouts.default')
+
+@section('content')
 
 <div class="container">
 
+  <h1>Test</h1>
 
-    <div class="row product-container">
-      <div class="col-md-3 product-item">
+    <section class="row product-container">
+
+
+      <!-- Make a foreach for products relative to db-->
+      @for ($i = 0; $i < 5; $i++)
+
+      <div class="col-md-4 product-item">
         <div class="product-image">
           <img src="https://i.pinimg.com/originals/63/72/05/6372058fc6082594c9b33756546f2be8.jpg" class="img-fluid" alt="">
         </div>
@@ -25,112 +23,17 @@
         <div class="product-purchase-details">
 
           <div class="product-price">
-            Price-tag
+            $19.00
           </div>
           <div class="product-cart">
-            cart to cart
+            <button type="button" class="btn btn-primary">Add to Cart</button>
           </div>
 
         </div>
       </div>
-      <div class="col-md-3 product-item">
-        <div class="product-image img-fluid">
-          <img src="https://i.pinimg.com/originals/63/72/05/6372058fc6082594c9b33756546f2be8.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="product-title">
-          Title Name
-        </div>
 
-        <div class="product-purchase-details">
+      @endfor
 
-          <div class="product-price">
-            Price-tag
-          </div>
-          <div class="product-cart">
-            cart to cart
-          </div>
-
-        </div>
-      </div>
-      <div class="col-md-3 product-item">
-        <div class="product-image img-fluid">
-          <img src="https://i.pinimg.com/originals/63/72/05/6372058fc6082594c9b33756546f2be8.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="product-title">
-          Title Name
-        </div>
-
-        <div class="product-purchase-details">
-
-          <div class="product-price">
-            Price-tag
-          </div>
-          <div class="product-cart">
-            cart to cart
-          </div>
-
-        </div>
-      </div>
-      <div class="col-md-3 product-item">
-        <div class="product-image img-fluid">
-          <img src="https://i.pinimg.com/originals/63/72/05/6372058fc6082594c9b33756546f2be8.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="product-title">
-          Title Name
-        </div>
-
-        <div class="product-purchase-details">
-
-          <div class="product-price">
-            Price-tag
-          </div>
-          <div class="product-cart">
-            cart to cart
-          </div>
-
-        </div>
-      </div>
-      <div class="col-md-3 product-item">
-        <div class="product-image img-fluid">
-          <img src="https://i.pinimg.com/originals/63/72/05/6372058fc6082594c9b33756546f2be8.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="product-title">
-          Title Name
-        </div>
-
-        <div class="product-purchase-details">
-
-          <div class="product-price">
-            Price-tag
-          </div>
-          <div class="product-cart">
-            cart to cart
-          </div>
-
-        </div>
-      </div>
-      <div class="col-md-3 product-item">
-        <div class="product-image img-fluid">
-          <img src="https://i.pinimg.com/originals/63/72/05/6372058fc6082594c9b33756546f2be8.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="product-title">
-          Title Name
-        </div>
-
-        <div class="product-purchase-details">
-
-          <div class="product-price">
-            Price-tag
-          </div>
-          <div class="product-cart">
-            cart to cart
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-
+    </section>
   </div>
-</body>
-</html>
+@stop
