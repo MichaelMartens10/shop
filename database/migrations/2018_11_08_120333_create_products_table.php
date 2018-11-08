@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->text('imageType')->nullable()->default(NULL);
 
             $table->mediumText('description');
+            $table->integer('price');
             $table->text('type');
             $table->integer('stock');
             $table->timestamps();

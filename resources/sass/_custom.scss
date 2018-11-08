@@ -1,3 +1,6 @@
+$borderTransparent: 5px solid transparent;
+$borderHover: 5px solid black;
+
 
 .container{
 
@@ -40,6 +43,12 @@
   max-width: 100%;
   -ms-flex: 0 0 100%;
   flex: 0 0 100%;
+  box-sizing: border-box;
+  border: $borderTransparent;
+
+  &:hover{
+    border: $borderHover;
+  }
 
   @media (min-width: 576px) {
     max-width: 50%;

@@ -1,5 +1,20 @@
-@include('layouts.header')
+<!DOCTYPE html>
+<html lang="en">
 
-@yield('content')
+  @include('layouts.head')
 
-@include('layouts.footer')
+  <body>
+
+    @include('layouts.navbar')
+
+    <div class="container">
+
+      @yield('content')
+
+      @include('layouts.footer')
+
+    </div>
+  </body>
+
+  <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+</html>
