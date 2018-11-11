@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
   @include('layouts.head')
 
@@ -15,6 +15,5 @@
 
     </div>
   </body>
-
-  <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
 </html>
