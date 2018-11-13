@@ -20,6 +20,11 @@
                         </div>
                     @endif
 
+          <a href="/admin/register" class="btn btn-primary">Add Admin</a>
+
+          @component('components.who')
+
+          @endcomponent
 
     </div>
   </section>

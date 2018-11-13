@@ -26,6 +26,9 @@
                     {{$user->phone}}
                     {{$user->address}}
 
+                    @component('components.who')
+
+                    @endcomponent
     </div>
   </section>
 

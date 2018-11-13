@@ -16,12 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-
-            /*Insert image to db*/
-            //https://laravel.io/forum/02-17-2014-how-do-you-save-image-to-database-and-display-it-on-website
-            $table->text('image')->nullable()->default(NULL);
-            $table->text('imageType')->nullable()->default(NULL);
-
+            $table->string('image')->nullable()->default(NULL);
             $table->mediumText('description');
             $table->integer('price');
             $table->text('type');

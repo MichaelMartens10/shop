@@ -14,6 +14,12 @@
       @include('layouts.footer')
 
     </div>
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('article-ckeditor');
+    </script>
   </body>
-  <script src="{{ asset('js/app.js') }}" defer></script>
+
 </html>

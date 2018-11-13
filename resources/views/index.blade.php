@@ -13,7 +13,7 @@
         <div class="col-md-4 product-item">
           <a href="products/{{$product->id}}">
             <div class="product-image">
-              <img src="https://i.pinimg.com/originals/63/72/05/6372058fc6082594c9b33756546f2be8.jpg" class="img-fluid" alt="">
+              <img src="/storage/product_images/{{$product->image}}" class="img-fluid" alt="">
             </div>
           </a>
           <div class="product-title">
@@ -37,5 +37,9 @@
       @endforeach
 
     </section>
+
+    @component('components.who')
+
+    @endcomponent
 
 @stop

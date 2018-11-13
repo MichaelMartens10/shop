@@ -33,6 +33,11 @@ class DashboardController extends Controller
     }
 
     public function adminLogin(){
+
+      if(Auth::user()){
+        return redirect('/');
+      }
+
       return view('auth.admin-login');
     }
 
@@ -41,7 +46,6 @@ class DashboardController extends Controller
         'email' => 'required|email',
         'password' => 'required|min:6'
     ]);
-
 
     if(Auth::guard('admin')->attempt([
       'email' => $request->email,
@@ -54,7 +58,6 @@ class DashboardController extends Controller
 
     return redirect()->back()->withInput($request->only('email', 'remember'));
 
-
     }
 
     public function admin(){
@@ -62,6 +65,5 @@ class DashboardController extends Controller
       return view('admin.dashboard');
 
     }
-
 
 }
