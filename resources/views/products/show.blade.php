@@ -7,10 +7,11 @@
 
       <div class="col-md-12">
         <h1>{{$product->title}}</h1>
-        <p>{{$product->description}}</p>
+        <img src="/storage/product_images/{{$product->image}}" class="img-fluid" alt="">
+        <p>{!!$product->description!!}</p>
 
       </div>
 
     </section>
 
-@stop
+@endsection

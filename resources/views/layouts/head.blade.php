@@ -5,4 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
   <title>{{config('app.name')}}</title>
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
