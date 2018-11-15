@@ -13526,6 +13526,10 @@ a.text-dark:focus {
   padding: 0 0.5rem;
 }
 
+.list-full {
+  width: 100%;
+}
+
 @font-face {
   font-family: 'Young';
   src: url(/fonts/Young.ttf?3fd03159df057cb442664bb5299539e9) format("truetype");

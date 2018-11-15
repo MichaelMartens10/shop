@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterAdminController extends Controller
+class AdminController extends Controller
 {
 
     use RegistersUsers;
@@ -40,7 +40,6 @@ class RegisterAdminController extends Controller
         ]);
     }
 
-
     protected function create(array $data)
     {
         return Admin::create([
@@ -60,14 +59,6 @@ class RegisterAdminController extends Controller
         return view('auth.register-admin');
     }
 
-    public function updateRegistrationForm(){
-      if(Auth::guard('admin')->user()->role != 'admin'){
-        return redirect('/');
-      }
-
-      return view('auth.register-admin');
-    }
-
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
@@ -76,6 +67,38 @@ class RegisterAdminController extends Controller
 
         return $this->registered($request, $user)
                         ?: redirect('/admin');
+    }
+
+    public function adminList(){
+      if(Auth::guard('admin')->user()->role != 'admin'){
+        return redirect('/');
+      }
+
+      $users = Admin::where('id', '!=', Auth::guard('admin')->user()->id)->where('role','!=','admin')->select('id', 'name', 'email', 'role')->get();
+      return view('admin.admin-list')->with('users', $users);
+    }
+
+    public function updateUserForm($id){
+      if(Auth::guard('admin')->user()->role != 'admin' && Auth::guard('admin')->user()->id != $id){
+        return redirect('/');
+      }
+
+      $user = Admin::where('id', $id)->select('name', 'email', 'role')->first();
+      return view('auth.update-admin')->with('user', $user);
+    }
+
+
+    public function destroyAdmin($id)
+    {
+        if(Auth::guard('admin')->user()->role != 'admin'){
+          return redirect('/');
+        }
+
+        $user = Admin::find($id);
+
+        $user->delete();
+
+        return view('admin.admin-list');
     }
 
 }
