@@ -15,10 +15,14 @@
 
 
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 Route::get('/user', 'DashboardController@user');
+
+Route::post('/add-to-cart', 'CartController@addToCart')->name('cart.add');
+Route::post('/update', 'CartController@updateCart')->name('cart.update');
+Route::get('/cart', 'CartController@cart')->name('cart');
 
 Route::prefix('admin')->group(function(){
 
@@ -40,3 +44,4 @@ Route::prefix('admin')->group(function(){
 });
 
 Route::resource('products', 'ProductController');
+Route::resource('nav', 'NavController');

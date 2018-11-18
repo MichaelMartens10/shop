@@ -3,7 +3,9 @@
 @section('content')
     <section class="row product-container">
 
-
+      <div class="col-md-12">
+        <h1 class='text-center'>A list over all our products</h1>
+      </div>
       <!-- Make a foreach for products relative to db-->
       @foreach($products as $product)
 

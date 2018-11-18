@@ -25,7 +25,8 @@ class ProductController extends Controller
 
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('products.index')->with('products', $products);
     }
 
 
@@ -74,7 +75,7 @@ class ProductController extends Controller
         $product->stock = $request->input('stock');
         $product->save();
 
-        return '123';
+         return redirect('/');
     }
 
 
@@ -128,7 +129,7 @@ class ProductController extends Controller
       $product->stock = $request->input('stock');
       $product->save();
 
-      return 'Success';
+      return redirect('/');
     }
 
 
@@ -143,6 +144,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return view('/');
+        return redirect('/');
     }
 }

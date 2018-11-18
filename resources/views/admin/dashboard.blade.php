@@ -22,10 +22,7 @@
 
           <a href="{{ URL::route('admin.register') }}" class="btn btn-primary">Add Admin</a>
           <a href="{{ URL::route('admin.list') }}" class="btn btn-primary">Admin List</a>
-
-          @component('components.who')
-
-          @endcomponent
+          <a href="{{ URL::route('admin.update', ['id' => $user->id]) }}" class="btn btn-primary">Change details</a>
 
     </div>
   </section>
