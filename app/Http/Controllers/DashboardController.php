@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 
 use App\User;
+use App\Admin;
 
 class DashboardController extends Controller
 {
@@ -61,8 +62,9 @@ class DashboardController extends Controller
     }
 
     public function admin(){
+      $user = Auth::guard('admin')->user();
 
-      return view('admin.dashboard');
+      return view('admin.dashboard')->with('user', $user);
 
     }
 

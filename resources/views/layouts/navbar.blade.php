@@ -1,10 +1,3 @@
-<?php
-if(Auth::guard('admin')->check()){
-  Auth::shouldUse('admin');
-}
- ?>
-
-
 
 <nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
@@ -19,13 +12,53 @@ if(Auth::guard('admin')->check()){
             <!-- Left Side Of Navbar -->
             <div class="navbar-nav">
               <a class="nav-item nav-link" href="/">Home</a>
-              <a class="nav-item nav-link" href="#">Features</a>
-              <a class="nav-item nav-link" href="#">Pricing</a>
-              <a class="nav-item nav-link" href="#"></a>
+
+
+              <ul class="navbar-nav ml-auto">
+
+              @foreach($nav as $item)
+                  @if($item->parent_id == null)
+                  <li class="nav-item dropdown">
+
+                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{$item->name}} <span class="caret"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                @foreach($nav as $sub_item)
+
+                  @if($item->id == $sub_item->parent_id)
+                    <a class="dropdown-item" href="{{$sub_item->path}}">
+                      {{$sub_item->name}}
+                    </a>
+                  @endif
+
+                @endforeach
+
+              </div>
+              </li>
+
+                @endif
+              @endforeach
+
+              </ul>
+
+
             </div>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+
+
+                <li clasS="nav-item">
+                  <a href="{{ route('cart')}}" class="nav-link">
+
+
+                    Cart{{Session::has('cart')? '(' . Session::get('cart')->totalQty . ')' : ''}}
+                  </a>
+                </li>
+
+
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
@@ -47,7 +80,7 @@ if(Auth::guard('admin')->check()){
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                          <a class="dropdown-item" href="/user/dashboard">Text
+                          <a class="dropdown-item" href="/login">Dashboard
                           </a>
 
                             <a class="dropdown-item" href="{{ route('logout') }}"

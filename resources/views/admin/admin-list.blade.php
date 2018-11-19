@@ -34,8 +34,4 @@
       </ul>
     </section>
 
-    @component('components.who')
-
-    @endcomponent
-
 @stop

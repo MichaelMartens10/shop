@@ -18,9 +18,7 @@
         <hr class="w-100 clearfix d-md-none">
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
           <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
-          <p><a href="#!">Your Account</a></p>
-          <p><a href="#!">Shipping Rates</a></p>
-          <p><a href="#!">Help</a></p>
+          <p><a href="{{ URL::route('admin.login') }}">Employee login</a></p>
         </div>
 
         <hr class="w-100 clearfix d-md-none">
@@ -37,11 +35,7 @@
 
       <div class="row d-flex align-items-center">
         <div class="col-md-7 col-lg-8">
-          <p class="text-center text-md-left">© 2018 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/">
-              <strong>MDBootstrap.com</strong>
-            </a>
-          </p>
+
         </div>
         <div class="col-md-5 col-lg-4 ml-lg-0">
           <div class="text-center text-md-right">

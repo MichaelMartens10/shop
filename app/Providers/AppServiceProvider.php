@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Auth;
+use App\Nav;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +18,19 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        view()->composer('layouts.navbar', function(){
+          if(Auth::guard('admin')->check()){
+            Auth::shouldUse('admin');
+          }
+
+
+        });
+
+        $nav = Nav::all();
+        View::share('nav', $nav);
+
+
     }
 
     /**
@@ -24,6 +40,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 }
